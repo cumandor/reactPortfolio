@@ -1,0 +1,9 @@
+.contact {
+    padding: 200px 0 150px;
+}
+
+.contact__inner {
+    background-color: rgba(59, 59, 59, 0.4);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+}
