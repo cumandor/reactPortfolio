@@ -1,7 +1,30 @@
-import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import './header.css';
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
+import "./header.css";
+
+const LIST = [
+  {
+    to: "/",
+    title: "Home",
+  },
+  {
+    to: "/about",
+    title: "About",
+  },
+  {
+    to: "/skills",
+    title: "Skills",
+  },
+  {
+    to: "/portfolio",
+    title: "Portfolio",
+  },
+  {
+    to: "/contact",
+    title: "Contact",
+  },
+];
 
 const Header = ({ handleToggleTheme, isCanvas2Visible }) => {
   const location = useLocation();
@@ -12,41 +35,48 @@ const Header = ({ handleToggleTheme, isCanvas2Visible }) => {
   };
 
   return (
-    <header className={`header ${isActive ? 'active' : ''}`}>
+    <header className={`header ${isActive ? "active" : ""}`}>
       <div className="container">
         <div className="header__body">
-          <a className='bgswithc header__logo' id="theme-toggle" onClick={handleToggleTheme} to="">VOLOVIK.</a>
+          <a
+            className="bgswithc header__logo"
+            id="theme-toggle"
+            onClick={handleToggleTheme}
+            to=""
+          >
+            VOLOVIK.
+          </a>
+
           <div
-            className={`header__burger ${isActive ? 'active' : ''}`}
+            className={`header__burger ${isActive ? "active" : ""}`}
             onClick={handleBurgerClick}
           >
-            <span className='btt'></span>
+            <span className="btt"></span>
           </div>
-          <nav className={`header__menu ${isActive ? 'active' : ''}`}>
+
+          <nav className={`header__menu ${isActive ? "active" : ""}`}>
             <ul className="header__list">
-              <li>
-                <Link to="/" className={`header__link ${location.pathname === '/' ? 'active' : ''}`}>Home</Link>
-              </li>
-              <li>
-                <Link to="/about" className={`header__link ${location.pathname === '/about' ? 'active' : ''}`}>About</Link>
-              </li>
-              <li>
-                <Link to="/skills" className={`header__link ${location.pathname === '/skills' ? 'active' : ''}`}>Skills</Link>
-              </li>
-              <li>
-                <Link to="/portfolio" className={`header__link ${location.pathname === '/portfolio' ? 'active' : ''}`}>Portfolio</Link>
-              </li>
-              <li>
-                <Link to="/contact" className={`header__link ${location.pathname === '/contact' ? 'active' : ''}`}>Contact</Link>
-              </li>
+              {LIST.map((link) => {
+                <li key={link.to}>
+                  <Link
+                    className={`header__link ${
+                      location.pathname === link.to ? "active" : ""
+                    }`}
+                    to={link.to}
+                  >
+                    {link.title}
+                  </Link>
+                </li>;
+              })}
             </ul>
           </nav>
         </div>
       </div>
+
       <style>
         {`
           #gradient-canvas2 {
-            visibility: ${isCanvas2Visible ? 'visible' : 'hidden'};
+            visibility: ${isCanvas2Visible ? "visible" : "hidden"};
           }
         `}
       </style>
