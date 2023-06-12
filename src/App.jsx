@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Gradient } from './assets/styles/Gradient';
 import { useTransition, animated } from '@react-spring/web';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/header/Header';
 import Home from './components/home/Home';
 import About from './components/about/About';
@@ -41,27 +41,36 @@ function App() {
   }, []);
 
   return (
-    <>
+    <Router>
       <Header handleToggleTheme={handleToggleTheme} isCanvas2Visible={isCanvas2Visible} />
+
       <div id='fade-background'>
+        {/* TODO: Move to css file
+        * ! No inline styles
+        */}
         <div className="wrapper" style={{ position: 'relative', overflow: 'hidden', minHeight: '100vh' }}>
           <button className='bgswithc1' id="theme-toggle" onClick={handleToggleTheme}></button>
             
           {transitions((props, item, key) => (
             <animated.div key={key} style={props}>
+              {/* TODO: Move to css file
+              * ! No inline styles
+              */}
               <div style={{ position: 'absolute', width: '100%' }}>
                 <Routes location={item}>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/skills" element={<Skills />} />
-                  <Route path="/portfolio" element={<Portfolio />} />
-                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/" element={Home} />
+                  <Route path="/about" element={About} />
+                  <Route path="/skills" element={Skills} />
+                  <Route path="/portfolio" element={Portfolio} />
+                  <Route path="/contact" element={Contact} />
                 </Routes>
               </div>
             </animated.div>
           ))}
         </div>
       </div>
+      
+      {/* TODO: Move to css file */}
       <style>
         {`
           #gradient-canvas2 {
@@ -69,7 +78,7 @@ function App() {
           }
         `}
       </style>
-    </>
+    </Router>
   );
 }
 
