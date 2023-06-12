@@ -1,8 +1,26 @@
-import { useState } from 'react';
-import './portfolio.css';
-import Slider from 'react-slick';
+import { useState } from "react";
+import "./portfolio.css";
+import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
+const CustomPrevArrow = (props) => (
+  <button className="custom-prev-arrow" aria-label="Previous" {...props} />
+);
+
+const CustomNextArrow = (props) => (
+  <button className="custom-next-arrow" aria-label="Next" {...props} />
+);
+
+const sliderSettings = {
+  dots: false,
+  infinite: true,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: true,
+  prevArrow: <CustomPrevArrow />,
+  nextArrow: <CustomNextArrow />,
+};
 
 function Portfolio() {
   const [isHovered, setIsHovered] = useState(false);
@@ -13,32 +31,6 @@ function Portfolio() {
 
   const handleMouseLeave = () => {
     setIsHovered(false);
-  };
-
-  const CustomPrevArrow = (props) => (
-    <button
-      {...props}
-      className="custom-prev-arrow"
-      aria-label="Previous"
-    ></button>
-  );
-
-  const CustomNextArrow = (props) => (
-    <button
-      {...props}
-      className="custom-next-arrow"
-      aria-label="Next"
-    ></button>
-  );
-
-  const sliderSettings = {
-    dots: false,
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
-    prevArrow: <CustomPrevArrow />,
-    nextArrow: <CustomNextArrow />,
   };
 
   return (
@@ -53,21 +45,22 @@ function Portfolio() {
                   src="https://cumandor.github.io/myPortfolio/"
                   width="100%"
                   height="100%"
+                  // TODO: Remove because of: 'frameBorder' is deprecated
                   frameBorder="0"
-                ></iframe>
+                />
               ) : (
                 <div
                   className="portfolio__image"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
-                
                   <div className="portfolio__overlay">
                     <p>Наведите для просмотра</p>
                   </div>
                 </div>
               )}
             </div>
+
             <div>
               {isHovered ? (
                 <iframe
@@ -75,22 +68,21 @@ function Portfolio() {
                   src="https://cumandor.github.io/toDoList/"
                   width="100%"
                   height="100%"
+                  // TODO: Remove because of: 'frameBorder' is deprecated
                   frameBorder="0"
-                ></iframe>
+                />
               ) : (
                 <div
                   className="portfolio__image"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={handleMouseLeave}
                 >
-               
                   <div className="portfolio__overlay">
                     <p>Наведите для просмотра</p>
                   </div>
                 </div>
               )}
             </div>
-           
           </Slider>
         </div>
       </div>
