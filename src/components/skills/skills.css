@@ -1,0 +1,68 @@
+.skills {
+    padding: 150px 0 0;
+}
+
+.skills__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(59, 59, 59, 0.4);
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.skills__column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid rgba(65, 65, 65, 0.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+}
+  
+.skills__title {
+    font-family: 'Dancing Script', cursive;
+    color: #fff;
+    text-align: center;
+    order: -1;
+    font-size: 54px;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+
+.skills__subtitle {
+    font-family: 'Pacifico', cursive;
+    color: #fff;
+    text-align: center;
+    font-size: 1.17em;
+}
+  
+.skills__text {
+    padding: 20px;
+    font-size: 18px;
+    color: #fff;
+    line-height: 24px;
+}
+
+.skills__modal-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgba(255, 165, 0);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: all .1s ease-in-out;
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer;
+}
+
+.skills__modal-btn:hover {
+    background-color: #ffffff;
+    color: orange;
+    transition: all .1s ease-in-out;
+}

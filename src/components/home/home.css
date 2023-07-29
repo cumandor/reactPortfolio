@@ -1,0 +1,99 @@
+.home {
+    padding: 200px 0 0;
+}
+
+.home__inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.home__img {
+    background: url(../../assets/img/self.jpg);
+    width: 400px;
+    height: 400px;
+    box-shadow: inset 0 0 0 9px rgba(252, 186, 7, 0.7);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    animation: profile__animate 8s ease-in-out infinite 1s;
+}
+
+@keyframes profile__animate {
+    0% {
+        border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+    }
+    50% {
+        border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
+    }
+    100% {
+        border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+    }
+}
+
+.home__title {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 77px;
+    margin: 20px 0 0;
+    color: #fff;
+    padding: 30px;
+}
+
+.home__column1 {
+    background-color: rgba(59, 59, 59, 0.4);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.home__subtitle {
+    font-family: 'Pacifico', cursive;
+    position: relative;
+    font-size: 24px;
+    padding-left: 80px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.home__subtitle::before {
+    content: '';
+    position: absolute;
+    width: 70px;
+    height: 1px;
+    background-color: #ffd104;
+    top: 50%;
+    left: 0;
+}
+
+.home__text {
+    max-width: 680px;
+    font-size: 18px;
+    padding: 30px;
+    color: #fff;
+    line-height: 24px;
+}
+
+.home__link {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    background-color: rgba(59, 59, 59, 0.4);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border-radius: 20px;
+    margin-top: 20px;
+    padding: 5px;
+}
+
+.home__link-item a svg {
+    width: 32px;
+    height: 32px;
+    fill: #fff;
+    transition: all .1s ease;
+}
+
+.home__link-item a svg:hover {
+    scale: 1.2;
+    transition: all .1s ease;
+}
